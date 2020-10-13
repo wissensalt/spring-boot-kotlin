@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  web-service:
+    build: .
+    container_name: web-service-springboot-kotlin
+    depends_on:
+      - postgres-springboot-kotlin
+    ports:
+      - 8080:8080
+    networks:
+      - web-service-kotlin-network
+  postgres-springboot-kotlin:
+    image: postgres:alpine
+    container_name: postgres-springboot-kotlin
+    ports:
+      - 5432:5432
+    networks:
+      - web-service-kotlin-network
+    environment:
+      POSTGRES_DB: springboot-kotlin-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pgadmin
+
+networks:
+  web-service-kotlin-network:
+    driver: bridge
