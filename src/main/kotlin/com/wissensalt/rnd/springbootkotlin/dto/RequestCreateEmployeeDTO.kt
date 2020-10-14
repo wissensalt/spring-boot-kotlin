@@ -4,10 +4,9 @@ import org.apache.logging.log4j.util.Strings
 
 data class RequestCreateEmployeeDTO (
 
-    val name: String = Strings.EMPTY,
+    val name: String,
 
-    val phoneNumber: String = Strings.EMPTY,
+    val phoneNumber: String,
 
-    val department: String = Strings.EMPTY
-
+    val department: String
 )
